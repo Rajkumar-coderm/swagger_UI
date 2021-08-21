@@ -1,0 +1,269 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Test API in User",
+        "version": "2.0"
+    },
+    "tags": [
+        {
+            "name": "users",
+            "description":"everythin about user"
+        },
+        {
+            "name": "category",
+            "description":"everythin about user"
+        },
+        {
+            "name": "order",
+            "description":"everythin about user"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https",
+        "www"
+    ],
+    "securityDefinitions": {
+        "api_key": {
+            "type": "apiKey",
+            "name": "api_key",
+            "in": "header"
+        }
+    },
+    "paths": {
+        "/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "required": true,
+                    "in": "path",
+                    "type": "string",
+                    "description": "Enter your Id"
+                }
+            ],
+            "get": {
+                "operationId": "routeWithId",
+                "summary": "Geting Routs",
+                "description": "Get user BY ID",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/json":  {
+                                "id": 18,
+                                "name": "Rajkumar",
+                                "email": "raj@gamil.com",
+                                "password": "1234567890"
+                              }
+                        }
+                    },"404": {
+                        "description": "404 response",
+                        "examples": {
+                            "application/json":{
+                                "code":"URL_ERR",
+                                "email":"NOT_FOUND",
+                                "reqire":"MODULE_NOT_REQUIRE"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/put/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "required": true,
+                    "in": "path",
+                    "type": "string",
+                    "description": "Enter your Id"
+                },
+                {
+                    "name": "name",
+                    "required": true,
+                    "in": "query",
+                    "type": "string",
+                    "description": "Enter your Name"
+                },
+                {
+                    "name": "email",
+                    "required": true,
+                    "in": "query",
+                    "type": "string",
+                    "description": "Enter your Email"
+                },
+                {
+                    "name": "password",
+                    "required": true,
+                    "in": "query",
+                    "type": "string",
+                    "description": "Enter your Password"
+                }
+            ],
+            "put": {
+                "operationId": "anotherRoute",
+                "summary": "update by id",
+                "description": "update by id",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "202": {
+                        "description": "202 response",
+                        "examples": {
+                            "application/json":"{message:successfully update}"
+                        }
+                    },"404": {
+                        "description": "404 response",
+                        "examples": {
+                            "application/json":{
+                                "code":"URL_ERR",
+                                "email":"NOT_FOUND",
+                                "reqire":"MODULE_NOT_REQUIRE"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/post": {
+            "parameters": [
+                {
+                    "name": "name",
+                    "required": true,
+                    "in": "query",
+                    "type": "string",
+                    "description": "some id"
+                },
+                {
+                    "name": "email",
+                    "required": true,
+                    "in": "query",
+                    "type": "string",
+                    "description": "some id"
+                },
+                {
+                    "name": "password",
+                    "required": true,
+                    "in": "query",
+                    "type": "string",
+                    "description": "some id"
+                }
+            ],
+            "post": {
+                "operationId": "routeWithId",
+                "summary": "post new data",
+                "description": "post new data",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/json": "{ foo: 1 }",
+                            "parameters":[]
+                        }
+                    },"404": {
+                        "description": "404 response",
+                        "examples": {
+                            "application/json":{
+                                "code":"URL_ERR",
+                                "email":"NOT_FOUND",
+                                "reqire":"MODULE_NOT_REQUIRE"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/delete/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "required": true,
+                    "in": "path",
+                    "type": "string",
+                    "description": "some id"
+                }
+            ],
+            "delete": {
+                "operationId": "routeWithId",
+                "summary": "delete data",
+                "description": "delete data",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/json": "{ foo: 1 }"
+                        }
+                    },"404": {
+                        "description": "404 response",
+                        "examples": {
+                            "application/json":{
+                                "code":"URL_ERR",
+                                "email":"NOT_FOUND",
+                                "reqire":"MODULE_NOT_REQUIRE"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "parameters": [],
+            "get": {
+                "summary": "getAll data",
+                "operationId": "getuser",
+                "description": "getAll data",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/json":{
+                                "id": 18,
+                                "name": "Rajkumar",
+                                "email": "raj@gamil.com",
+                                "password": "1234567890"
+                              }
+                        }
+                    },
+                    "404": {
+                        "description": "404 response",
+                        "examples": {
+                            "application/json":{
+                                "code":"URL_ERR",
+                                "email":"NOT_FOUND",
+                                "reqire":"MODULE_NOT_REQUIRE"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
